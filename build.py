@@ -486,6 +486,31 @@ footer a {{ color: var(--muted); margin-right: 20px; }}
 footer a:hover {{ color: var(--text); }}
 footer .thanks {{ margin: 0 0 20px; line-height: 1.6; }}
 footer .thanks a {{ margin: 0; text-decoration: underline; text-underline-offset: 3px; }}
+
+/* Phones: less empty space, full-width buttons, captions that wrap, larger tap targets. */
+@media (max-width: 599px) {{
+  header {{ padding: 64px 0 48px; }}
+  .langs {{ top: 12px; }}
+  .langs button {{ padding: 10px 8px; }}
+  .hero {{ gap: 32px; }}
+  h1 {{ margin-bottom: 20px; }}
+  .heritage {{ margin-bottom: 28px; }}
+  .actions .btn {{ flex: 1 1 100%; text-align: center; padding: 14px 20px; }}
+  .slide figcaption {{ white-space: normal; line-height: 1.5; margin-top: 10px; }}
+  .carousel .controls {{ margin-top: 0; }}
+  .controls button {{ width: 48px; height: 48px; }}
+  .ring {{ inset: 10px; }}
+  section {{ padding: 48px 0; }}
+  h2 {{ margin-bottom: 28px; }}
+  .sub {{ margin: -16px 0 28px; }}
+  .persona {{ padding: 20px 20px 24px; }}
+  .persona .tile {{ margin-bottom: 16px; }}
+  .bucket {{ padding: 32px 0; }}
+  .items {{ gap: 24px; }}
+  .ways {{ gap: 24px; }}
+  footer a {{ display: inline-block; padding: 6px 0; margin-right: 18px; }}
+  footer .thanks a {{ display: inline; padding: 0; }}
+}}
 </style>
 </head>
 <body>
