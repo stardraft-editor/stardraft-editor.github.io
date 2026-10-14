@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · StarDraft 2</title>
+<meta name="description" content="What StarDraft 2 sends, when, and where: feedback you write and crash reports you allow.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/app-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg: #0c0e11; --line: #252a31; --text: #e9e5dc; --muted: #8e939b; --accent: #5ce096;
+  --display: "Chakra Petch", "Noto Sans KR", system-ui, sans-serif;
+  --sans: "IBM Plex Sans", "Noto Sans KR", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.7 var(--sans);
+       -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 700px) { .wrap { padding: 0 32px; } }
+a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--accent); }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0;
+      font: 0.75rem var(--mono); color: var(--muted); }
+nav .home { display: flex; align-items: center; gap: 10px; font: 600 1rem var(--display); color: var(--text);
+            text-decoration: none; }
+nav .home img { width: 24px; height: 24px; }
+main { padding: 32px 0 64px; border-top: 1px solid var(--line); }
+h1, h2 { font-family: var(--display); font-weight: 600; letter-spacing: 0.01em; }
+h1 { font-size: 2.2rem; margin: 0; }
+h2 { font-size: 1.2rem; margin: 40px 0 8px; }
+.date { margin: 4px 0 32px; font: 0.8rem var(--mono); color: var(--muted); }
+.short { font-size: 1.1rem; padding: 16px 20px; border-left: 2px solid var(--accent); background: #13161a; }
+p, li { color: #cfcbc2; }
+ul { padding-left: 1.2em; }
+code { font: 0.85em var(--mono); color: var(--text); word-break: break-all; }
+footer { padding: 24px 0 56px; border-top: 1px solid var(--line); font: 0.8rem var(--mono); color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="home" href="./"><img src="assets/app-256.png" alt="">StarDraft 2</a>
+  </nav>
+  <main>
+    <article>
+<h1>Privacy</h1>
+<p class="date">Last updated 2026-10-14</p>
+
+<p class="short">StarDraft 2 has no accounts, no ads, no analytics and no tracking. It sends something to the developers
+only when you choose to: feedback that you write, and crash reports that you allow. Both are posted without your name
+as <strong>public</strong> issues on <a href="https://github.com/stardraft-editor/stardraft/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+
+<h2>Feedback</h2>
+<p>You can send feedback from the program (Help &gt; Report feedback, the feedback button, or right-click &gt; Report
+feedback). Nothing is sent until you press Send. It is sent without your name, email or
+account. It contains:</p>
+<ul>
+  <li>the text you write</li>
+  <li>what you gave feedback on (for example a list item or window title, which can be a name from your map)</li>
+  <li>the workspace, the StarDraft 2 version and the Windows version</li>
+</ul>
+<p>It becomes a public issue on GitHub that anyone can read, so do not write sensitive or private information in it.
+Until it is sent, it is kept in <code>%LOCALAPPDATA%\StarDraft\feedback</code>, which also keeps a list of the
+feedback you sent.</p>
+
+<h2>Crash reports</h2>
+<p>When StarDraft 2 crashes, it writes a crash report on your computer, in
+<code>%LOCALAPPDATA%\StarDraft\crashes</code>. It sends a report only if you allow it: at the next start it asks
+(Send, Always send, Do not send). You can change this at any time in File &gt; Options &gt; Crash reports (Ask, Send, Do not
+send). The default is Ask.</p>
+<p>A report that is sent has no name or account, and contains:</p>
+<ul>
+  <li>the StarDraft 2 version, the Windows version and the name of the video card</li>
+  <li>where it crashed (the error and the program functions it was in)</li>
+  <li>the last 60 lines of the program's log</li>
+</ul>
+<p>It does not contain your maps. The log lines can contain file paths (which can include your Windows user name) and
+names from your map, such as location or unit names. The report becomes a public issue on GitHub. The crash folder
+also has a memory dump (<code>crash.dmp</code>) for debugging; StarDraft 2 does not send it.</p>
+
+<h2>Updates and euddraft</h2>
+<p>When "Look for updates on start" is on (File &gt; Options; it is on by default), StarDraft 2 asks GitHub for the newest release at each start. You
+can also check from Help &gt; Check for updates. An update is downloaded from GitHub only when you choose Install. The
+first time you build a project, StarDraft 2 downloads <a href="https://github.com/armoha/euddraft" target="_blank" rel="noopener">euddraft</a> from GitHub. None of these
+send your maps or anything you wrote.</p>
+
+<h2>What GitHub sees</h2>
+<p>Feedback, crash reports, update checks and downloads go to GitHub, which sees your IP address, like any website you
+visit. GitHub's handling of it is in the
+<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy
+Statement</a>.</p>
+
+<h2>On your computer</h2>
+<p>StarDraft 2 keeps its settings, recent maps and projects in the Windows registry
+(<code>HKEY_CURRENT_USER\Software\StarDraft</code>) and its files in <code>%LOCALAPPDATA%\StarDraft</code>. They stay
+on your computer. You can delete them.</p>
+
+<h2>This website</h2>
+<p>This website sets no cookies of its own and has no analytics. It is hosted on GitHub Pages and uses Google Fonts, a YouTube
+video (youtube-nocookie.com, loaded when you scroll to it) and GitHub's API for the newest release; these services see your
+IP address. Your language choice on the main page (EN | KR) is kept in your browser.</p>
+
+<h2>Removing a report, and questions</h2>
+<p>If you sent something that you want removed, or have a question about privacy, write on
+<a href="https://discord.gg/JBMCwSRJBm" target="_blank" rel="noopener">Discord</a> or open an <a href="https://github.com/stardraft-editor/stardraft/issues" target="_blank" rel="noopener">issue on GitHub</a>, with the link to the issue, and
+we will remove it.</p>
+
+<h2>Changes</h2>
+<p>When StarDraft 2 changes what it sends, this page changes with it, with a new date.</p>
+</article>
+  </main>
+  <footer><a href="./">stardraft-editor.github.io</a></footer>
+</div>
+</body>
+</html>
