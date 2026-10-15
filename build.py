@@ -109,7 +109,7 @@ EN = {
     "thanks": f'StarDraft 2 would not be possible without <a href="{EUDDRAFT}">euddraft</a>, which powers all of its '
               'EUD editing, or without the research of the StarCraft mapping and modding community at '
               '<a href="https://staredit.net">staredit.net</a>.',
-    "notice": "StarDraft 2 is not associated with Blizzard Entertainment. It needs an installation of StarCraft: Remastered to work.",
+    "notice": "StarDraft 2 is not associated with Blizzard Entertainment. It needs an installation of StarCraft to work.",
 }
 KO = {
     "description": "StarDraft 2는 맵·모드 제작자를 위한 스타크래프트 제작 도구 모음으로, Camelot Systems의 StarDraft를 잇는 "
@@ -152,7 +152,7 @@ KO = {
     "thanks": f'StarDraft 2의 모든 EUD 편집은 <a href="{EUDDRAFT}">euddraft</a>로 이루어집니다. euddraft와 '
               '<a href="https://staredit.net">staredit.net</a>의 스타크래프트 맵·모드 제작 커뮤니티가 쌓아 온 연구가 없었다면 '
               "StarDraft 2는 없었을 것입니다.",
-    "notice": "StarDraft 2는 Blizzard Entertainment와 관련이 없습니다. 사용하려면 스타크래프트: 리마스터가 설치되어 있어야 합니다.",
+    "notice": "StarDraft 2는 Blizzard Entertainment와 관련이 없습니다. 사용하려면 스타크래프트가 설치되어 있어야 합니다.",
 }
 KO_PERSONAS = {
     "melee": ("밀리 맵 제작자", "브러시, 스프레이, 채우기, 바꾸기, 대칭으로 지형을 칠하거나 맵 전체를 생성하세요. 각 기지의 "
@@ -877,7 +877,7 @@ footer {{ padding: 24px 0 56px; border-top: 1px solid var(--line); font: 0.8rem 
   <main>
     <article>{body}</article>
   </main>
-  <footer><p>StarDraft 2 is not associated with Blizzard Entertainment. It needs an installation of StarCraft: Remastered to work.</p><a href="./">stardraft-editor.github.io</a></footer>
+  <footer><p>StarDraft 2 is not associated with Blizzard Entertainment. It needs an installation of StarCraft to work.</p><a href="./">stardraft-editor.github.io</a></footer>
 </div>
 </body>
 </html>
