@@ -75,7 +75,8 @@ EN = {
     "lede": "A StarCraft creation suite for map and mod creators. Built by the community, for the community.",
     "heritage": "StarDraft 2 aims to be the spiritual successor to StarDraft, the 1998 editor by Camelot Systems that "
                 "powered the StarCraft modding community of the early 2000s.",
-    "download": "Download for Windows", "discord": "Join the Discord", "builds": "Mac and Linux builds coming soon",
+    "download": "Download for Windows", "download.mac": "Download for macOS", "download.linux": "Download for Linux",
+    "discord": "Join the Discord", "builds": "All downloads: Windows, macOS (Apple silicon) and Linux (AppImage)",
     "shots": "Screenshots", "shot": "Screenshot", "prev": "Previous screenshot", "next": "Next screenshot",
     "close": "Close", "of": "{k} of {n}",
     "cap1": "Map editing in HD, SD or Carbot graphics",
@@ -117,7 +118,8 @@ KO = {
     "lede": "맵·모드 제작자를 위한 스타크래프트 제작 도구 모음. 커뮤니티가, 커뮤니티를 위해 만듭니다.",
     "heritage": "StarDraft 2는 2000년대 초 스타크래프트 모딩 커뮤니티를 이끈 1998년 Camelot Systems의 에디터, StarDraft의 "
                 "정신적 후속작을 목표로 합니다.",
-    "download": "Windows용 다운로드", "discord": "Discord 참여하기", "builds": "Mac·Linux 버전 출시 예정",
+    "download": "Windows용 다운로드", "download.mac": "macOS용 다운로드", "download.linux": "Linux용 다운로드",
+    "discord": "Discord 참여하기", "builds": "모든 다운로드: Windows, macOS(Apple 실리콘), Linux(AppImage)",
     "shots": "스크린샷", "shot": "스크린샷", "prev": "이전 스크린샷", "next": "다음 스크린샷", "close": "닫기",
     "of": "{n}장 중 {k}",
     "cap1": "HD·SD·Carbot 그래픽으로 맵 편집",
@@ -317,7 +319,7 @@ def build(items, intros):
     ko_json = json.dumps(korean(items), ensure_ascii=False, indent=1).replace("</", "<\\/")
     page = TEMPLATE.format(personas=personas, buckets="\n".join(buckets), repo=REPO, discord=DISCORD, feedback=FEEDBACK,
                            video=VIDEO, i_select=icon("select"), i_feedback=icon("feedback"), i_issue=icon("issue"), L=L,
-                           ko_json=ko_json)
+                           ko_json=ko_json, mac_label=json.dumps(EN["download.mac"]), linux_label=json.dumps(EN["download.linux"]))
     return new_tab(page)
 
 
@@ -533,7 +535,7 @@ footer .thanks a {{ margin: 0; text-decoration: underline; text-underline-offset
       <a class="btn" href="{discord}"><span data-i18n="discord">{L[discord]}</span></a>
     </div>
     <p class="note release"><a href="{repo}/blob/main/docs/user/CHANGELOG.md"><span id="version"></span><span data-i18n="changelog">{L[changelog]}</span></a></p>
-    <p class="note"><span data-i18n="builds">{L[builds]}</span></p>
+    <p class="note release"><a href="{repo}/releases/latest"><span data-i18n="builds">{L[builds]}</span></a></p>
     </div>
     <div class="carousel">
       <div class="slides" id="slides" tabindex="0" aria-label="{L[shots]}" data-i18n-aria-label="shots">
@@ -657,6 +659,19 @@ footer .thanks a {{ margin: 0; text-decoration: underline; text-underline-offset
   </div>
 </dialog>
 <script>
+// The viewer's system: the download button names it and gets its file (below). Before the language part, which keeps
+// the button's key and English text as they are now.
+const SYSTEM = (() => {{
+  const p = ((navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || navigator.userAgent || "").toLowerCase();
+  if (/iphone|ipad|android/.test(navigator.userAgent.toLowerCase())) return "win";
+  return p.includes("mac") ? "mac" : p.includes("linux") ? "linux" : "win";
+}})();
+if (SYSTEM !== "win") {{
+  const label = document.querySelector("#download [data-i18n]");
+  label.dataset.i18n = "download." + SYSTEM;
+  label.textContent = SYSTEM === "mac" ? {mac_label} : {linux_label};
+}}
+
 // The language: the viewer's choice (EN | KR, kept in this browser), else ?lang=ko or en in the address, else the
 // browser's languages (Korean first: Korean). The page is written in English; KO has the Korean of each data-i18n key.
 (() => {{
@@ -685,13 +700,15 @@ footer .thanks a {{ margin: 0; text-decoration: underline; text-underline-offset
   }}));
 }})();
 
-// The download button: the newest release's Windows zip, its version and date (YYYY-MM-DD, UTC), from GitHub's API. Without it (offline, rate
+// The download button: the newest release's file for the viewer's system (the Windows zip, the macOS disk image or the
+// Linux AppImage), its version and date (YYYY-MM-DD, UTC), from GitHub's API. Without it (offline, rate
 // limit), the button opens the newest release's page.
 fetch("https://api.github.com/repos/stardraft-editor/stardraft/releases/latest")
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(rel => {{
-    const zip = (rel.assets || []).find(a => a.name.toLowerCase().endsWith("win64.zip"));
-    if (zip) document.getElementById("download").href = zip.browser_download_url;
+    const ends = {{win: "win64.zip", mac: ".dmg", linux: ".appimage"}}[SYSTEM];
+    const file = (rel.assets || []).find(a => a.name.toLowerCase().endsWith(ends));
+    if (file) document.getElementById("download").href = file.browser_download_url;
     document.getElementById("version").textContent =
       [rel.tag_name, (rel.published_at || "").slice(0, 10)].filter(Boolean).join(" · ");
   }})
