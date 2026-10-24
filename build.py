@@ -53,13 +53,14 @@ EUDDRAFT = "https://github.com/armoha/euddraft"
 PERSONAS = [
     ("melee", "Melee map makers", "terrain",
      "Paint terrain with brushes, spray, fill, replace and symmetry, or generate a full map. See the town area of "
-     "each base, in HD, SD or Carbot graphics."),
+     "each base, in HD, SD or Carbot graphics, and simulate melee mining and fights (experimental)."),
     ("ums", "UMS & campaign makers", "flag",
      "A modern classic trigger editor, unit, upgrade and technology settings, and mission briefings with preview. "
      "Campaign projects are coming soon."),
     ("eud", "EUD map makers", "triggers",
      "Edit unit, weapon, image and sprite data, and write triggers as blocks in plain sentences, or in your own "
-     "epScript files. Checks find EUD errors and desyncs before you build."),
+     "epScript files. Checks find EUD errors and desyncs before you build, and the simulation (experimental) lets "
+     "your custom units fight."),
     ("mod", "Mod makers", "molecule",
      "Integrated mod editing: make maps with your custom mod files, and manage them in one place. For mods for "
      "both StarCraft: Remastered and 1.16.1."),
@@ -158,11 +159,12 @@ KO = {
 }
 KO_PERSONAS = {
     "melee": ("밀리 맵 제작자", "브러시, 스프레이, 채우기, 바꾸기, 대칭으로 지형을 칠하거나 맵 전체를 생성하세요. 각 기지의 "
-                              "타운 영역을 HD, SD, Carbot 그래픽으로 확인할 수 있습니다."),
+                              "타운 영역을 HD, SD, Carbot 그래픽으로 확인하고, 밀리 채굴과 전투를 시뮬레이션할 수 있습니다(실험적)."),
     "ums": ("유즈맵·캠페인 제작자", "현대적인 클래식 트리거 에디터, 유닛·업그레이드·기술 설정, 미리보기가 있는 미션 브리핑. "
                                  "캠페인 프로젝트는 곧 지원됩니다."),
     "eud": ("EUD 맵 제작자", "유닛, 무기, 이미지, 스프라이트 데이터를 편집하고, 트리거를 평범한 문장으로 된 블록이나 직접 만든 "
-                            "epScript 파일로 작성하세요. 빌드하기 전에 EUD 오류와 디싱크를 검사합니다."),
+                            "epScript 파일로 작성하세요. 빌드하기 전에 EUD 오류와 디싱크를 검사하고, 시뮬레이션(실험적)으로 "
+                            "커스텀 유닛끼리 싸워 볼 수 있습니다."),
     "mod": ("모드 제작자", "통합 모드 편집: 커스텀 모드 파일로 맵을 만들고 한곳에서 관리하세요. 스타크래프트: 리마스터와 1.16.1 "
                          "모드를 모두 지원합니다."),
 }
