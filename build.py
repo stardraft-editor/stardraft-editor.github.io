@@ -39,7 +39,7 @@ import sys
 import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent
-ROADMAP_URL = "https://raw.githubusercontent.com/stardraft-editor/stardraft/main/docs/project/ROADMAP.md"
+ROADMAP_URL = "https://raw.githubusercontent.com/stardraft-editor/stardraft/master/docs/project/ROADMAP.md"
 OUT = ROOT / "index.html"
 PRIVACY_OUT = ROOT / "privacy.html"
 ICONS = ROOT / "assets" / "icons"  # copies of the program's UI icons (tools/icongen/out/ui/theme in stardraft)
@@ -539,7 +539,7 @@ footer .thanks a {{ margin: 0; text-decoration: underline; text-underline-offset
       <a class="btn primary" id="download" href="{repo}/releases/latest"><span data-i18n="download">{L[download]}</span></a>
       <a class="btn" href="{discord}"><span data-i18n="discord">{L[discord]}</span></a>
     </div>
-    <p class="note release"><a href="{repo}/blob/main/docs/user/CHANGELOG.md"><span id="version"></span><span data-i18n="changelog">{L[changelog]}</span></a></p>
+    <p class="note release"><a href="{repo}/blob/master/docs/user/CHANGELOG.md"><span id="version"></span><span data-i18n="changelog">{L[changelog]}</span></a></p>
     <p class="note release"><a href="{repo}/releases/latest"><span data-i18n="builds">{L[builds]}</span></a></p>
     </div>
     <div class="carousel">
@@ -647,7 +647,7 @@ footer .thanks a {{ margin: 0; text-decoration: underline; text-underline-offset
   <div class="wrap">
     <p class="thanks"><span data-i18n="thanks">{L[thanks]}</span></p>
     <p class="thanks"><span data-i18n="notice">{L[notice]}</span></p>
-    <a href="{repo}">GitHub</a><a href="{repo}/blob/main/docs/user/CHANGELOG.md"><span data-i18n="changelog">{L[changelog]}</span></a><a href="{discord}">Discord</a><a href="{repo}/issues"><span data-i18n="report">{L[report]}</span></a><a href="privacy.html"><span data-i18n="privacy">{L[privacy]}</span></a>
+    <a href="{repo}">GitHub</a><a href="{repo}/blob/master/docs/user/CHANGELOG.md"><span data-i18n="changelog">{L[changelog]}</span></a><a href="{discord}">Discord</a><a href="{repo}/issues"><span data-i18n="report">{L[report]}</span></a><a href="privacy.html"><span data-i18n="privacy">{L[privacy]}</span></a>
   </div>
 </footer>
 <dialog class="lightbox" id="lightbox" aria-label="{L[shot]}" data-i18n-aria-label="shot" tabindex="-1">
